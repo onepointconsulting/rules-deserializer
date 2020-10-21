@@ -25,3 +25,7 @@ GO
 ALTER TABLE [dbo].[rule_condition] WITH CHECK ADD CONSTRAINT [FK_rule_condition__rule_definition] FOREIGN KEY([RULE_ID])
 REFERENCES [dbo].[rule_definition] ([ID])
 GO
+
+ALTER TABLE [dbo].[rule_definition] WITH CHECK ADD CONSTRAINT [FK_rule_definition__rule_definition] FOREIGN KEY([PARENT])
+REFERENCES [dbo].[rule_definition] ([ID])
+GO

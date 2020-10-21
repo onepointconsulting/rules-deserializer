@@ -2,10 +2,10 @@
 const timeOut = 3600000;
 
 export const dbConfig = {
-    user: process.env.MEGGIT_DB_USER,
-    password: process.env.MEGGIT_DB_PASSWORD,
-    server: process.env.MEGGIT_DB_SERVER,
-    database: process.env.MEGGIT_DB_DATABASE,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    server: process.env.DB_SERVER,
+    database: process.env.DB_DATABASE,
     connectionTimeout: timeOut,
     requestTimeout: timeOut,
     pool: {
@@ -14,6 +14,6 @@ export const dbConfig = {
     },
     options: {
         encrypt: true,
-        database: process.env.MEGGIT_DB_DATABASE
+        database: process.env.DB_DATABASE
     }
 };

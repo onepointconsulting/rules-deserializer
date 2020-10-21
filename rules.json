@@ -1,27 +1,4 @@
 {
-  "2": {
-    "rule_name": "Mock simple wind rule with two conditions",
-    "conditions": {
-      "all": [
-        {
-          "fact": "Wind Speed",
-          "operator": "greaterThan",
-          "value": "15 mph"
-        },
-        {
-          "fact": "Precipitation",
-          "operator": "greaterThan",
-          "value": "15 mm"
-        }
-      ]
-    },
-    "event": {
-      "type": "device1",
-      "params": {
-        "message": "shutdown"
-      }
-    }
-  },
   "3": {
     "rule_name": "Mock simple wind rule with two conditions [OR]",
     "conditions": {
@@ -40,7 +17,8 @@
       }
     }
   },
-  "4": {
+  "4":
+  {
     "rule_name": "Mock parent wind rule with two child rules [OR]",
     "conditions": {
       "any": [
@@ -52,6 +30,20 @@
               "value": "38 mph"
             }
           ]
+        },
+        {
+          "all": [
+            {
+              "fact": "Wind Speed",
+              "operator": "greaterThan",
+              "value": "15 mph"
+            },
+            {
+              "fact": "Precipitation",
+              "operator": "greaterThan",
+              "value": "15 mm"
+            }
+          ]
         }
       ]
     },
@@ -61,7 +53,7 @@
         "message": "shutdown"
       }
     }
-  },
+  }                                                                                 ,
   "5": {
     "rule_name": "Mock low temperature rule",
     "conditions": {

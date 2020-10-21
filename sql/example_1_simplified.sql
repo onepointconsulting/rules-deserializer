@@ -16,6 +16,9 @@ INSERT INTO rule_definition([NAME], [OPERATOR], [EVENT_TYPE], [EVENT_DATA])
 update rule_definition set PARENT = (select id from rule_definition where name = 'Mock parent wind rule with two child rules [OR]')
 	where name = 'Mock simple wind rule with one condition';
 
+update rule_definition set PARENT = (select id from rule_definition where name = 'Mock parent wind rule with two child rules [OR]')
+	where name = 'Mock simple wind rule with two conditions';
+
 INSERT INTO rule_definition([NAME], [OPERATOR], [EVENT_TYPE], [EVENT_DATA])
     VALUES ('Mock Wind Beaufort scale', 'AND', 'device3', 'shutdown');
 
