@@ -1,0 +1,88 @@
+{
+  "2": {
+    "rule_name": "Mock simple wind rule with two conditions",
+    "conditions": {
+      "all": [
+        {
+          "fact": "Wind Speed",
+          "operator": "greaterThan",
+          "value": "15 mph"
+        },
+        {
+          "fact": "Precipitation",
+          "operator": "greaterThan",
+          "value": "15 mm"
+        }
+      ]
+    },
+    "event": {
+      "type": "device1",
+      "params": {
+        "message": "shutdown"
+      }
+    }
+  },
+  "3": {
+    "rule_name": "Mock simple wind rule with two conditions [OR]",
+    "conditions": {
+      "any": [
+        {
+          "fact": "Wind Speed",
+          "operator": "greaterThan",
+          "value": "38 mph"
+        },
+        {
+          "fact": "Atmospheric Pressure",
+          "operator": "lessThan",
+          "value": "970 MB"
+        }
+      ]
+    },
+    "event": {
+      "type": "device2",
+      "params": {
+        "message": "shutdown"
+      }
+    }
+  },
+  "4": {
+    "rule_name": "Mock parent wind rule with two child rules [OR]",
+    "conditions": {
+      "any": [
+        {
+          "all": [
+            {
+              "fact": "Wind Speed",
+              "operator": "greaterThan",
+              "value": "38 mph"
+            }
+          ]
+        },
+        {
+          "all": [
+            {
+              "fact": "Temperature",
+              "operator": "lessThan",
+              "value": "-20 c"
+            },
+            {
+              "all": [
+                {
+                  "fact": "Wind Speed",
+                  "operator": "greaterThanEquals",
+                  "value": "10 Beaufort"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "event": {
+      "type": "device3",
+      "params": {
+        "message": "shutdown"
+      }
+    }
+  }
+}
